@@ -5,16 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSS Grid Experiments</title>
-    <h1>CSS Grid Experiments</h2>
-    <ul>
-        <li><a href="experiment1.html">Experiment 1</a></li>
-        <li><a href="experiment2.html">Experiment 2 - Grid as design element</a></li>
-        <li><a href="experiment3.html">Experiment 3 - Running content/blog post</a></li>
-        <li><a href="experiment4.html">Experiment 4 - Auto rows and columns</a></li>
-        <li><a href="experiment5.html">Experiment 5 - Named areas; responsive sidebar (using display:flex)</a></li>
-    </ul>
+    <style>
+
+        body {
+            font-family: sans-serif;
+        }
+
+        div {
+            padding: 1rem;
+        }
+
+        .tile {
+            margin: 0rem;
+            width: 8rem;
+            height: 8rem;
+        }
+
+        .cards {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: flex-start;
+        }
+
+
+        .card {
+            border: 1px rgba(0,0,0,0) solid;
+            flex: 0 1 18%;
+            margin: 1rem;
+        }
+
+        .card:hover {
+            border: 1px black solid;
+        }
+
+        .card:hover > .tile {
+            background-color: black !important;
+        }
+
+
+    </style>
 </head>
 <body>
-    
+    <h1>CSS Grid Experiments</h1>
+    <h2>Eamonn Bell</h2>
+    <div class="cards">
+            <div class="card">
+                <div class="tile" style="background-color: blue;"></div>
+                <a href="experiment1.html">Experiment 1</a>
+            </div>
+            <div class="card">
+                <div class="tile" style="background-color: red;"></div>    
+                <a href="experiment2.html">Experiment 2 - Grid as design element</a>
+            </div>
+            <div class="card">
+                <div class="tile" style="background-color: green;"></div>
+                <a href="experiment3.html">Experiment 3 - Running content/blog post</a>
+            </div>
+            <div class="card">
+                <div class="tile" style="background-color: yellow;"></div>
+                <a href="experiment4.html">Experiment 4 - Auto rows and columns</a>
+            </div>
+            <div class="card">
+                <div class="tile" style="background-color: orange;"></div>
+                <a href="experiment5.html">Experiment 5 - Named areas; responsive sidebar (using display:flex)</a>
+            </div>
+    </div>
+
 </body>
 </html>
