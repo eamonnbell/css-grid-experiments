@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Grid - Experiment 5 - Named areas</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .wrapper {
+            display: grid;
+            padding: 2rem;
+            margin: 2rem;
+            grid-gap: 10px;
+            grid-template-columns: 0.3fr 1fr 1fr;
+            grid-template-areas: ". header header" "navbar content content" "footer footer footer";
+        }
+
+        .wrapper>* {
+            background-image: -webkit-gradient(linear, left top, left bottom, from(lightgrey),whiteolor));
+            background-image: -webkit-linear-gradient(top, lightgrey, white);
+            background-image: -moz-linear-gradient(top, lightgrey, white);
+            background-image: linear-gradient(to bottom, lightgrey, white);
+            background-color: gradient;
+            padding: 1rem;
+        }
+
+        .header {
+            grid-area: header;
+        }
+
+        .footer {
+            grid-area: footer;
+        }
+
+        .navbar {
+            grid-area: navbar;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            grid-area: content;
+        }
+
+        @media (max-width: 960px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+                grid-template-areas: "header" "navbar" "content" "footer";
+            }
+
+            .navbar {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header"><h1>Farcebook</h1></div>
+        <div class="footer">Named areas; responsive sidebar (using display:flex) - try resizing window</div>
+        <div class="navbar">
+                <div>Home</div>
+                <div>Profile</div>
+                <div>Photos</div>
+                <div>Settings</div>
+                <div>Help</div>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore recusandae cum mollitia corporis. Et provident
+                nulla sunt pariatur iste ipsa modi cumque id eius magni, harum, exercitationem quae. Obcaecati nihil dicta
+                eaque ratione id. Ducimus qui doloremque culpa ratione officiis? Rem officiis illo facere aliquid dicta fuga
+                veritatis atque, maxime animi accusamus voluptate unde ipsa molestiae aut iste reprehenderit suscipit error
+                obcaecati inventore facilis nobis! Architecto ipsa ex assumenda harum cumque culpa? Enim, ullam ea.</p>
+            <p>Mollitia nesciunt veritatis vel, impedit porro labore est aut alias blanditiis, libero distinctio excepturi?
+                Ad autem sapiente similique dolorem aliquid accusantium explicabo omnis laudantium sit commodi animi exercitationem
+                magni, placeat aliquam eum sunt alias quis necessitatibus doloribus? Neque deleniti veniam pariatur. Excepturi,
+                commodi necessitatibus ducimus quis debitis id eos ad laborum asperiores non voluptate impedit saepe officiis
+                animi aliquam dignissimos iure quisquam deleniti. Praesentium, unde molestiae. Odio voluptatum ipsa illo
+                ducimus amet quis molestiae voluptate!</p>
+            <p>Error itaque eos accusamus fugit? Ipsam assumenda delectus eum veniam soluta ducimus nihil perferendis. Laborum
+                voluptatibus harum, ex necessitatibus ratione laboriosam itaque nisi ut minus asperiores a. Cum, ut magnam.
+                Accusamus veritatis animi sint minima nulla! Necessitatibus, et repellendus quo beatae autem quod deleniti
+                id optio sequi, voluptates quisquam impedit natus cupiditate ex fugit doloribus quasi vero. Officia molestias
+                expedita eveniet veritatis ipsa, illum libero laudantium perferendis hic at aliquam fugit quaerat dolores
+                nostrum in.</p>
+            <p>Odit doloribus voluptate in deleniti numquam voluptatum ad facere aliquid dicta atque, natus debitis unde reprehenderit
+                nemo illum quae iusto. Quae, consequuntur nulla magni esse veritatis quidem unde magnam incidunt molestiae
+                sapiente delectus deleniti rerum, sed blanditiis sequi minus modi eveniet dolore nisi? Labore quasi, atque,
+                nulla iure suscipit autem ipsa ad dolor accusantium cumque exercitationem minus totam eos laudantium quis
+                dolorum impedit quas quisquam vero, facilis dicta eum. Commodi non recusandae veniam ea deserunt!</p>
+            <p>Accusantium quam necessitatibus, quis dicta aliquam dolore perspiciatis commodi nobis qui, dignissimos voluptates
+                quibusdam earum voluptas optio cumque accusamus ut, cupiditate aliquid. Ipsam commodi accusamus nesciunt
+                quidem, ut deleniti mollitia eius tenetur nihil recusandae beatae at inventore modi in quibusdam soluta cumque
+                totam libero quasi tempore veniam doloribus sit repellat perferendis? Odit, maiores accusantium delectus
+                alias voluptatem aliquid aliquam saepe excepturi facere ut, velit illum porro vel ipsam expedita minima quos!
+                Vel reiciendis quae dolore.</p>
+        </div>
+    </div>
+</body>
+
+</html>
