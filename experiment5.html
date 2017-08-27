@@ -10,6 +10,7 @@
         body {
             font-family: sans-serif;
         }
+
         .wrapper {
             display: grid;
             padding: 0.5rem;
@@ -20,7 +21,7 @@
         }
 
         .wrapper>* {
-            background-image: -webkit-gradient(linear, left top, left bottom, from(lightgrey),whiteolor));
+            background-image: -webkit-gradient(linear, left top, left bottom, from(lightgrey), whiteolor));
             background-image: -webkit-linear-gradient(top, lightgrey, white);
             background-image: -moz-linear-gradient(top, lightgrey, white);
             background-image: linear-gradient(to bottom, lightgrey, white);
@@ -58,27 +59,68 @@
                 justify-content: space-around;
             }
         }
-
     </style>
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="header"><h1>Farcebook</h1></div>
+        <div class="header">
+            <h1>Farcebook</h1>
+        </div>
         <div class="footer">Named areas; responsive sidebar (using display:flex) - try resizing window</div>
         <div class="navbar">
-                <div>Home</div>
-                <div>Profile</div>
-                <div>Photos</div>
-                <div>Settings</div>
-                <div>Help</div>
+            <div>Home</div>
+            <div>Profile</div>
+            <div>Photos</div>
+            <div>Settings</div>
+            <div>Help</div>
         </div>
         <div class="content">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore recusandae cum mollitia corporis. Et provident
-                nulla sunt pariatur iste ipsa modi cumque id eius magni, harum, exercitationem quae. Obcaecati nihil dicta
-                eaque ratione id. Ducimus qui doloremque culpa ratione officiis? Rem officiis illo facere aliquid dicta fuga
-                veritatis atque, maxime animi accusamus voluptate unde ipsa molestiae aut iste reprehenderit suscipit error
-                obcaecati inventore facilis nobis! Architecto ipsa ex assumenda harum cumque culpa? Enim, ullam ea.</p>
+            <p>Here, we take advantage of naming grid areas, using the <code>grid-area</code> property. Every grid item in the
+                wrapper has a name, which can be addressed in the <code>areas</code> property. This provides an alternative
+                to specifying the <code>grid-area</code> property in terms of numbers or row/column names, as before. The
+                leads to nicely "semantic" specification of the grid structure. A period can be used to signify empty space
+                in the grid. Here, media queries are used to reorganize the content of the grid when the media width is below
+                a certain ceiling. Using names in <code>grid-area</code> and <code>grid-template-areas</code> makes the CSS that handles this implementation of
+                a basic responsive design strategy eminently readable. Here's the relevant part of the CSS (view the source
+                for the full story.).
+                <code>display: flex</code> is only used <strong>within</strong> the navbar div to arrange the content; everything
+                else falls out of <code>display: grid</code>. This demonstrates how flexbox and CSS Grid can co-exist peacefully.
+                <pre>
+/* [...] */
+
+.wrapper {
+    display: grid;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    grid-gap: 10px;
+    grid-template-columns: 0.3fr 1fr 1fr;
+    grid-template-areas: ". header header" "navbar content content" "footer footer footer";
+}
+
+.navbar {
+    grid-area: navbar;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* [...] */
+
+@media (max-width: 960px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas: "header" "navbar" "content" "footer";
+    }
+
+    .navbar {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+</pre>
+
+            </p>
             <p>Mollitia nesciunt veritatis vel, impedit porro labore est aut alias blanditiis, libero distinctio excepturi?
                 Ad autem sapiente similique dolorem aliquid accusantium explicabo omnis laudantium sit commodi animi exercitationem
                 magni, placeat aliquam eum sunt alias quis necessitatibus doloribus? Neque deleniti veniam pariatur. Excepturi,
